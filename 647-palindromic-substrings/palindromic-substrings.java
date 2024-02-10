@@ -4,7 +4,7 @@ class Solution
     static int pal(char[] arr, int[][] dp, int i, int j)
     {
         if(i>=j) return 1;
-        if(arr[i] != arr[j]) return -1;
+        if(arr[i] != arr[j]) return 0;
 
         dp[i][j] = pal(arr,dp,i+1,j-1);
         if(dp[i][j]==1) ans++;
