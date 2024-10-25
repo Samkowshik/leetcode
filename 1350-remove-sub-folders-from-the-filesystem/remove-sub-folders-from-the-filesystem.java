@@ -17,6 +17,7 @@ class Solution
                     if(l1 == l2 || a[j].charAt(l1)=='/')
                     a[j] = "";
                 }
+                else break;
             }
             lst.add(a[i]);
         }
