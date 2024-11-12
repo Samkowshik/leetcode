@@ -1,8 +1,6 @@
 class Solution {
     public int[] maximumBeauty(int[][] items, int[] queries) 
     {
-        int n = queries.length;
-        int[] ans = new int[n];
 
         TreeSet<Integer> set = new TreeSet<>();
         Map<Integer, Integer> map = new HashMap<>();
