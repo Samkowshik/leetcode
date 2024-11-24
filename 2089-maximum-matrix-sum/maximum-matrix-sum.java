@@ -15,7 +15,6 @@ class Solution {
             min = Math.min(min, i);
             sum+=i;
         }
-        System.out.println(sum+" "+min);
         if(min == 1000000 || f || f1) return sum;
         return sum-min*2;
     }
