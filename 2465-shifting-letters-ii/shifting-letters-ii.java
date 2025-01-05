@@ -17,13 +17,11 @@ class Solution
 
         for(int i=1; i<n; i++)
             pre[i] += pre[i-1];
-        for(int i=0; i<n; i++)
-            pre[i] %= 26;
 
         char[] ans = s.toCharArray();
         for(int i=0; i<n; i++)
         {
-            ans[i] += pre[i];
+            ans[i] += pre[i]%26;
             if(ans[i]>122)
                 ans[i] = (char)(96+ans[i]-'z');
             else if(ans[i]<97)
