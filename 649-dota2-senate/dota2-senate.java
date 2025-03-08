@@ -4,7 +4,7 @@ class Solution
     {
         char[] s = senate.toCharArray();
 
-        int n = s.length, ds = 0, rs = 0, nl = 0; 
+        int n = s.length, ds = 0, rs = 0; 
         int[] arr = new int[n];
 
         for(int i=0; i<n; i++)
@@ -12,7 +12,6 @@ class Solution
             if(ds==0 && rs==0 || ds>0){
                 ds++;
                 arr[i] = 1;
-                nl++;
             } 
             else{
                 rs--;
@@ -23,7 +22,6 @@ class Solution
             if(ds==0 && rs==0 || rs>0){
                 rs++;
                 arr[i] = 1;
-                nl++;
             } 
             else{
                 ds--;
@@ -36,21 +34,20 @@ class Solution
         
         for(int i=0; ds>0 && i<n; i++)
             if(s[i]=='R' && arr[i]==1){
-                ds--; nl--;
+                ds--;
                 arr[i] = 0;
             }
         for(int i=0; rs>0 && i<n; i++)
             if(s[i]=='D' && arr[i]==1){
-                rs--; nl--;
+                rs--;
                 arr[i] = 0;
             }
         
-        int j = 0;
-        char[] ns = new char[nl];
+        StringBuilder sb = new StringBuilder();
         for(int i=0; i<n; i++)
             if(arr[i]==1)
-                ns[j++] = s[i];
+                sb.append(s[i]);
 
-        return predictPartyVictory(new String(ns));
+        return predictPartyVictory(sb.toString());
     }
 }
