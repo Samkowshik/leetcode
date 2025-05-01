@@ -7,7 +7,6 @@ class Solution
         while(l<=r)
         {
             m=(l+r)/2;
-            System.out.println(m+" "+n);
            if((m==0 && nums[m+1]<nums[m]) || (m==n && nums[m-1]<nums[m]) || (m>0 && m<n && nums[m-1]<nums[m] && nums[m+1]<nums[m]))
             return m;
 
