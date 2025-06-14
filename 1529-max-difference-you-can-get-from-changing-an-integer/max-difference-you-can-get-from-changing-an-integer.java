@@ -44,13 +44,13 @@ class Solution
             while(i<l && (nums[i]==1 || nums[i]==0)) i++;
 
             if(i==l) return n1-num;
-            
+
             n2 = edit(nums, nums[i], 0);
         }
         else
             n2 = edit(nums, nums[0], 1);
 
-        System.out.println(n1+" "+n2);
+        // System.out.println(n1+" "+n2);
         return n1-n2;
     }
 }
