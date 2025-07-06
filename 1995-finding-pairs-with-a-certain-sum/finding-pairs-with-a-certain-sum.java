@@ -2,14 +2,19 @@ class FindSumPairs
 {
     int[] nums1, nums2;
     Map<Integer, Integer> frq1, frq2;
+    List<Integer> lst1;
     public FindSumPairs(int[] nums1, int[] nums2) 
     {
         this.nums1 = nums1;
         this.nums2 = nums2;
         frq1 = new HashMap<>();
         frq2 = new HashMap<>();
+
         for(int i: nums1)
         frq1.put(i, frq1.getOrDefault(i,0)+1);
+        lst1 = new ArrayList(frq1.keySet());
+        Collections.sort(lst1);
+
         for(int i: nums2)
         frq2.put(i, frq2.getOrDefault(i,0)+1);
     }
@@ -26,9 +31,10 @@ class FindSumPairs
         // System.out.println(Arrays.toString(nums2));
         // System.out.println(frq2);
         int ans = 0;
-        for(Integer key : frq1.keySet()){
-            Integer val = frq2.getOrDefault(tot-key,0);
-            if(val!=0)
+        for(Integer key : lst1){
+            if(key >= tot) break;
+            Integer val = frq2.get(tot-key);
+            if(val!= null)
             ans += frq1.get(key)*val;
             // System.out.println(ans);
         }
