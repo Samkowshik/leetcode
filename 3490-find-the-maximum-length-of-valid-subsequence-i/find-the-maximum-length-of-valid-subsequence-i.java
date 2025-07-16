@@ -2,7 +2,7 @@ class Solution
 {
     public int maximumLength(int[] nums) 
     {
-        int evenCount = 0, oddCount = 0, count = 0, n = nums.length;
+        int evenCount = 0, count = 0, n = nums.length;
         for(int i=0; i<n; count++)
         {
             if(nums[i]%2 == 0)
@@ -11,11 +11,9 @@ class Solution
                 i++;
             }
             else
-            while(i<n && nums[i]%2 == 1){
-                oddCount++;
+            while(i<n && nums[i]%2 == 1)
                 i++;
-            }
         }
-        return Math.max(count, Math.max(evenCount, oddCount));
+        return Math.max(count, Math.max(evenCount, n-evenCount));
     }
 }
