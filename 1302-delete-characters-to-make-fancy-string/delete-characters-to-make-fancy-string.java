@@ -1,16 +1,17 @@
-class Solution {
+class Solution 
+{
     public String makeFancyString(String s) 
     {
-        char[] ans = new char[s.length()];
-        int c = 0, j=0;
-        char p = '-';
-        for(char i: s.toCharArray())
+        StringBuilder sb = new StringBuilder();
+        sb.append(s.charAt(0));
+        
+        int c = 1;
+        for(int i=1; i<s.length(); i++)
         {
-            c = i==p? c+1:1;
-            if(c<3) ans[j++] = i;
-            p = i;
+            c = s.charAt(i-1) == s.charAt(i) ? c+1 : 1;
+            if(c<3)
+                sb.append(s.charAt(i));
         }
-
-        return new String(ans,0,j);
+        return sb.toString();
     }
 }
