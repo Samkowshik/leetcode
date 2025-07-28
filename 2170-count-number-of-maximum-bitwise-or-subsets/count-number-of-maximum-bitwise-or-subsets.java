@@ -1,26 +1,28 @@
 class Solution 
 {
-    static int sam(int[] nums, int n, int i, int max, int cur)
+    int max;
+    
+    int sam(int[] nums, int i, int cur)
     {
-        if(i == n) return 0;
+        if(i == nums.length) return 0;
 
-        int nonpick = sam(nums, n, i+1, max, cur);
+        int nonpick = sam(nums, i+1, cur);
 
         cur |= nums[i];
 
         if (cur == max) 
-        return nonpick + (1<<n-i-1);
+        return nonpick + (1<<nums.length-i-1);
 
-        int pick = sam(nums, n, i+1, max, cur);
+        int pick = sam(nums, i+1, cur);
 
         return nonpick + pick ;
     }
     
     public int countMaxOrSubsets(int[] nums) 
     {
-        int max = 0;
+        max = 0;
         for (int i : nums) max |= i;
 
-        return sam(nums, nums.length, 0, max, 0);
+        return sam(nums, 0, 0);
     }
 }
