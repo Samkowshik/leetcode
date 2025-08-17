@@ -13,7 +13,7 @@ class Solution
         int ind = 0, len = 0, max = -1;
         while(ind < n)
         {
-            while(ind < n && (nums[ind] == 1 || nums[ind] == -1)) ind++;
+            while(ind < n && Math.abs(nums[ind]) == 1) ind++;
 
             while(ind < n && nums[ind] == len%2){
                 ind++;
