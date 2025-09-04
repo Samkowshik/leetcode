@@ -1,7 +1,6 @@
 class Solution {
     public int[] findThePrefixCommonArray(int[] A, int[] B) {
         int[] map = new int[A.length+1];
-        int[] ans = new int[A.length];
         int c = 0;
         for(int i=0; i<A.length; i++)
         {
@@ -9,9 +8,9 @@ class Solution {
                 c++;
             if(++map[B[i]-1] == 2)
                 c++;
-            ans[i] = c;
+            A[i] = c;
         }
 
-        return ans;
+        return A;
     }
 }
