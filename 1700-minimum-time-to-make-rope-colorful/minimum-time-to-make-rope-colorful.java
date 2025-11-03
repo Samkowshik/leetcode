@@ -2,10 +2,10 @@ class Solution
 {
     public int minCost(String colors, int[] neededTime)
     {
-        int ans = 0, prv = colors.charAt(0), sum = 0, max = 0;
-        for(int i=0; i<neededTime.length; i++)
+        int ans = 0, sum = neededTime[0], max = sum;
+        for(int i=1; i<neededTime.length; i++)
         {
-            if(prv == colors.charAt(i)){
+            if(colors.charAt(i-1) == colors.charAt(i)){
                 max = Math.max(max, neededTime[i]);
                 sum += neededTime[i];
             }
@@ -15,7 +15,6 @@ class Solution
                 max = neededTime[i];
                 sum = neededTime[i];
             }
-            prv = colors.charAt(i);
         }
         ans += sum-max;
         return ans;
